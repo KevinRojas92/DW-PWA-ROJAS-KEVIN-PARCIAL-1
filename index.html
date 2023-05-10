@@ -5,34 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyWeather</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>MyWeather</h1>
+<body style="background-color: #083359;">
+    <header>
+        <img src="img/logo.jpg" alt="logo">
+        <h1>MyWeather</h1>
+    </header>
 
-    <div>
-        <form action="procesar_datos.php" method="post" target="_self">
-            <div>
-                <label for="buscador">Buscador</label>
-                <input type="search" id="buscador" name="buscador" placeholder="Busca por país, ciudad o provincia">
-            </div>
-
-            <button type="submit" value="Buscar">Buscar</button>
-        </form>
-    </div>
-
-    <div>Estado del climax</div>
-
-    <div>Temperatura Máxima</div>
-
-    <div>Temperatura Mínima</div>
-
-    <div>Humedad</div>
-
-    <div>Sensación Térmica</div>
-
-    <div>Presión Atmosférica</div>
-
-    <div>Velocidad del viento</div>
+    <main>
+        <div>
+            <form action="" method="GET">
+                <div>
+                    <label for="buscador" style="display: none;">Buscador</label>
+                    <input type="search" id="buscador" name="buscador" placeholder="Busca por país, ciudad o provincia">
+                </div>
+    
+                <button type="submit" value="Buscar">Buscar</button>
+            </form>
+        </div>
+    
+        <div class="estado_actual" style="margin-top: 5vh; margin-left: calc(50% - 10vw);">Estado del climax</div>
+    
+        <div class="datos">
+            <div style="margin-bottom: 3vh;">Temperatura Máxima</div>
+    
+            <div style="margin-bottom: 3vh;">Temperatura Mínima</div>
+        
+            <div style="margin-bottom: 3vh;">Humedad</div>
+        
+            <div style="margin-bottom: 3vh;">Sensación Térmica</div>
+        
+            <div>Presión Atmosférica</div>
+        
+            <div>Velocidad del viento</div>
+        </div>
+    </main>
     
     <script src="script.js"></script>
 </body>
