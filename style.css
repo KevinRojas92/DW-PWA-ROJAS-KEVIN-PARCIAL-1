@@ -55,7 +55,7 @@ button {
     cursor: pointer;
 }
 
-.datos {
+#datos {
     margin-top: 5vh;
     margin-bottom: 5vh;
     display: flex;
@@ -63,7 +63,7 @@ button {
     justify-content: space-between;
 }
 
-.estado_actual, .datos div {
+#estado_actual, #datos div {
     width: 24vw;
     height: 24vw;
     padding: 15px;
