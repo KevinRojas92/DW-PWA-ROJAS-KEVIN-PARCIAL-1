@@ -6,7 +6,7 @@
 
 const apiKey = "698602930bd82be2ecbd605539371c85";
 let buscar = document.getElementById("buscar");
-let estado_actual = document.getElementsByClassName("estado_actual");
+let estado_actual = document.getElementById("estado_actual");
 
 buscar.addEventListener('click', buscarUbicacion => {
     buscarUbicacion.preventDefault();
@@ -27,10 +27,9 @@ buscar.addEventListener('click', buscarUbicacion => {
 
             return apiClima;
         }).then (datos_clima => {
-
             return datos_clima.json();
         }).then (json_clima => {
-            console.log(json_clima.weather);
+            estado_actual.innerHTML = `<p>${json_clima.weather[0].description}</p>`;
         })
     } catch (error) {
         
