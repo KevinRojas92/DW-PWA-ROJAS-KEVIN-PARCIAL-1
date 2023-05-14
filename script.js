@@ -6,7 +6,15 @@
 
 const apiKey = "698602930bd82be2ecbd605539371c85";
 let buscar = document.getElementById("buscar");
+
 let estado_actual = document.getElementById("estado_actual");
+
+let temp_max = document.getElementById("temp_max");
+let temp_min = document.getElementById("temp_min");
+let humedad = document.getElementById("humedad");
+let sensacion = document.getElementById("sensacion");
+let presion = document.getElementById("presion");
+let velocidad = document.getElementById("velocidad");
 
 buscar.addEventListener('click', buscarUbicacion => {
     buscarUbicacion.preventDefault();
@@ -30,6 +38,13 @@ buscar.addEventListener('click', buscarUbicacion => {
             return datos_clima.json();
         }).then (json_clima => {
             estado_actual.innerHTML = `<p>${json_clima.weather[0].description}</p>`;
+
+            temp_max.innerHTML = `<p>${json_clima.main.temp_max}</p>`;
+            temp_min.innerHTML = `<p>${json_clima.main.temp_min}</p>`;
+            humedad.innerHTML = `<p>${json_clima.main.humidity}</p>`;
+            sensacion.innerHTML = `<p>${json_clima.main.feels_like}</p>`;
+            presion.innerHTML = `<p>${json_clima.main.pressure}</p>`;
+            velocidad.innerHTML = `<p>${json_clima.wind.speed}</p>`;
         })
     } catch (error) {
         
