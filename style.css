@@ -80,5 +80,7 @@ button {
 }
 
 #estado_actual p span, #datos div p span {
+    width: 100%;
     font-size: 40px;
+    text-align: center;
 }
