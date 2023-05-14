@@ -37,14 +37,14 @@ buscar.addEventListener('click', buscarUbicacion => {
         }).then (datos_clima => {
             return datos_clima.json();
         }).then (json_clima => {
-            estado_actual.innerHTML = `<p>Estado actual <span>${json_clima.weather[0].description}</span></p>`;
+            estado_actual.innerHTML += `<p><span>${json_clima.weather[0].description}</span></p>`;
 
-            temp_max.innerHTML = `<p>Temperatura Máxima <span>${json_clima.main.temp_max}</span>°C</p>`;
-            temp_min.innerHTML = `<p>Temperatura Mínima <span>${json_clima.main.temp_min}</span>°C</p>`;
-            humedad.innerHTML = `<p>Humedad <span>${json_clima.main.humidity}</span>%</p>`;
-            sensacion.innerHTML = `<p>Sensación Térmica <span>${json_clima.main.feels_like}</span>°C</p>`;
-            presion.innerHTML = `<p>Presión Atmosférica <span>${json_clima.main.pressure}</span>hPa</p>`;
-            velocidad.innerHTML = `<p>Velocidad del viento <span>${json_clima.wind.speed}</span>km</p>`;
+            temp_max.innerHTML += `<p><span>${json_clima.main.temp_max}</span>°C</p>`;
+            temp_min.innerHTML += `<p><span>${json_clima.main.temp_min}</span>°C</p>`;
+            humedad.innerHTML += `<p><span>${json_clima.main.humidity}</span>%</p>`;
+            sensacion.innerHTML += `<p><span>${json_clima.main.feels_like}</span>°C</p>`;
+            presion.innerHTML += `<p><span>${json_clima.main.pressure}</span>hPa</p>`;
+            velocidad.innerHTML += `<p><span>${json_clima.wind.speed}</span>km</p>`;
         })
     } catch (error) {
         
