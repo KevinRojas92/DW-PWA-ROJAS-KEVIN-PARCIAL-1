@@ -8,7 +8,7 @@ const apiKey = "698602930bd82be2ecbd605539371c85";
 let buscar = document.getElementById("buscar");
 let contador = 0;
 
-function crearDatos() {
+function CrearDatos() {
     contador += 1;
 
     let estado_actual = document.getElementById("estado_actual");
