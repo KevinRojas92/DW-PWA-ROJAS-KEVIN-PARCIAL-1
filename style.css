@@ -63,6 +63,15 @@ button {
     justify-content: space-between;
 }
 
+#estado_actual {
+    margin-top: 5vh;
+    margin-left: calc(50% - 10vw);
+}
+
+#temp_max, #temp_min, #humedad, #sensacion {
+    margin-bottom: 3vh;
+}
+
 #estado_actual, #datos div {
     width: 24vw;
     height: 24vw;
