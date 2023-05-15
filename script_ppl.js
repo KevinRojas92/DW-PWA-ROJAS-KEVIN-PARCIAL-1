@@ -8,22 +8,19 @@ const apiKey = "698602930bd82be2ecbd605539371c85";
 let buscar = document.getElementById("buscar");
 let contador = 0;
 
-function CrearDatos() {
-    contador += 1;
-
+function CrearBase () {
     let estado_actual = document.getElementById("estado_actual");
     let texto_estado_actual = document.getElementById("texto_estado_actual");
 
-    if (contador > 1 ) {
-        let resultado_estado_actual = document.getElementById("resultado_estado_actual");
+    let resLocal_estado_actual = document.getElementById("resultado_estado_actual");
 
-        estado_actual.removeChild(resultado_estado_actual);
+    if (resLocal_estado_actual) {
+        estado_actual.removeChild(resLocal_estado_actual);
     }
 
     estado_actual.removeChild(texto_estado_actual);
-    console.log(estado_actual);
 
-    estado_actual.innerHTML += '<p id="texto_estado_actual">Estado actual - NEW</p>';
+    estado_actual.innerHTML += '<p id="texto_estado_actual">Estado actual</p>';
 
     let datos = document.getElementById("datos");
 
@@ -76,17 +73,53 @@ function CrearDatos() {
     div_velocidad.innerHTML += "<p>Velocidad del viento</p>";
 
     datos.appendChild(div_velocidad);
-}
+};
+
+function CrearDatos (json_clima) {
+    let dato_estado_actual = json_clima.weather[0].main;
+    estado_actual.innerHTML += `<p id="resultado_estado_actual"><span>${dato_estado_actual}</span></p>`;
+
+    let dato_temp_max = json_clima.main.temp_max;
+    temp_max.innerHTML += `<p><span>${dato_temp_max}</span>°C</p>`;
+
+    let dato_temp_min = json_clima.main.temp_min;
+    temp_min.innerHTML += `<p><span>${dato_temp_min}</span>°C</p>`;
+
+    let dato_humedad = json_clima.main.humidity;
+    humedad.innerHTML += `<p><span>${dato_humedad}</span>%</p>`;
+
+    let dato_sensacion = json_clima.main.feels_like;
+    sensacion.innerHTML += `<p><span>${dato_sensacion}</span>°C</p>`;
+
+    let dato_presion = json_clima.main.pressure;
+    presion.innerHTML += `<p><span>${dato_presion}</span>hPa</p>`;
+
+    let dato_velocidad = json_clima.wind.speed;
+    velocidad.innerHTML += `<p><span>${dato_velocidad}</span>km/h</p>`;
+
+    let array_datos = [
+        dato_estado_actual,
+        dato_temp_max,
+        dato_temp_min,
+        dato_humedad,
+        dato_sensacion,
+        dato_presion,
+        dato_velocidad
+    ];
+
+    return array_datos;
+};
 
 buscar.addEventListener('click', buscarUbicacion => {
     buscarUbicacion.preventDefault();
 
-    CrearDatos ();
+    contador += 1;
+    CrearBase ();
 
     let ubicacion = document.getElementById("buscador").value;
 
     try {
-        let apiUbicacion = fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ubicacion}&limit=1&appid=${apiKey}`)
+        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ubicacion}&limit=1&appid=${apiKey}`)
         .then (datos => {
             return datos.json();
 
@@ -102,22 +135,36 @@ buscar.addEventListener('click', buscarUbicacion => {
             return datos_clima.json();
 
         }).then (json_clima => {
-            estado_actual.innerHTML += `<p id="resultado_estado_actual"><span>${json_clima.weather[0].main}</span></p>`;
-            console.log(estado_actual);
+            let array_datos = CrearDatos (json_clima);
 
-            temp_max.innerHTML += `<p><span>${json_clima.main.temp_max}</span>°C</p>`;
-            temp_min.innerHTML += `<p><span>${json_clima.main.temp_min}</span>°C</p>`;
-            humedad.innerHTML += `<p><span>${json_clima.main.humidity}</span>%</p>`;
-            sensacion.innerHTML += `<p><span>${json_clima.main.feels_like}</span>°C</p>`;
-            presion.innerHTML += `<p><span>${json_clima.main.pressure}</span>hPa</p>`;
-            velocidad.innerHTML += `<p><span>${json_clima.wind.speed}</span>km/h</p>`;
+            return array_datos;
+
+        }).then (local => {
+            localStorage.setItem("ubicacion", JSON.stringify(local));
+
         })
-
-        console.log(contador);
     } catch (error) {
-        
+        alert("Ha ocurrido un error");        
     }
-
-
 });
+
+if (localStorage.length > 0) {
+    let datos_guardados = JSON.parse(localStorage.getItem("ubicacion"));
+
+    estado_actual.innerHTML += `<p id="resultado_estado_actual"><span>${datos_guardados[0]}</span></p>`;
+
+    temp_max.innerHTML += `<p><span>${datos_guardados[1]}</span>°C</p>`;
+
+    temp_min.innerHTML += `<p><span>${datos_guardados[2]}</span>°C</p>`;
+
+    humedad.innerHTML += `<p><span>${datos_guardados[3]}</span>%</p>`;
+
+    sensacion.innerHTML += `<p><span>${datos_guardados[4]}</span>°C</p>`;
+
+    presion.innerHTML += `<p><span>${datos_guardados[5]}</span>hPa</p>`;
+
+    velocidad.innerHTML += `<p><span>${datos_guardados[6]}</span>km/h</p>`;
+} else {
+    console.log("No hay datos");
+}
 
