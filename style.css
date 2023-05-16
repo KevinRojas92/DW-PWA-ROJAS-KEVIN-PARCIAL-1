@@ -55,6 +55,13 @@ button {
     cursor: pointer;
 }
 
+#lugar {
+    width: 100%;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 60px;
+}
+
 #datos {
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -92,13 +99,4 @@ button {
 
 #temp_max, #temp_min, #humedad, #sensacion, #velocidad {
     margin-bottom: 3vh;
-}
-
-#mapa {
-    width: 50vw !important;
-    height: 50vw !important;
-}
-
-iframe {
-    border-radius: 10px;
 }
