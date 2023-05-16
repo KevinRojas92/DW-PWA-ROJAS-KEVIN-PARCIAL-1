@@ -68,10 +68,6 @@ button {
     margin-left: calc(50% - 10vw);
 }
 
-#temp_max, #temp_min, #humedad, #sensacion {
-    margin-bottom: 3vh;
-}
-
 #estado_actual, #datos div {
     width: 24vw;
     height: 24vw;
@@ -92,4 +88,17 @@ button {
     width: 100%;
     font-size: 40px;
     text-align: center;
+}
+
+#temp_max, #temp_min, #humedad, #sensacion, #velocidad {
+    margin-bottom: 3vh;
+}
+
+#mapa {
+    width: 50vw !important;
+    height: 50vw !important;
+}
+
+iframe {
+    border-radius: 10px;
 }
