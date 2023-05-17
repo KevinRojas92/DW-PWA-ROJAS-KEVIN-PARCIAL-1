@@ -10,15 +10,15 @@
 }
 
 header {
-    width: 50vw;
+    width: 90vw;
     height: fit-content;
     margin: auto;
     margin-top: 5vh;
 }
 
 header img {
-    width: 10vw;
-    margin-left: calc(50% - 5vw);
+    width: 50vw;
+    margin-left: 20vw;
 }
 
 h1 {
@@ -27,28 +27,32 @@ h1 {
 }
 
 main {
-    width: 50vw;
+    width: 90vw;
     margin: auto;
     margin-top: 5vh;
 }
 
 form {
+    height: fit-content;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 input {
-    width: 38vw;
+    width: 90vw;
     height: 40px;
     border-radius: 20px;
     border: 0 transparent;
     padding: 0 30px;
     color: #083359;
+    text-align: center;
 }
 
 button {
-    width: 10vw;
+    width: 70%;
+    height: 40px;
+    margin-top: 25px;
     background-color: #5B9ED9;
     border: 0 transparent;
     border-radius: 10px;
@@ -58,8 +62,8 @@ button {
 #lugar {
     width: 100%;
     text-align: center;
-    margin: 5vh 0;
-    font-size: 60px;
+    margin: 3vh 0;
+    font-size: 45px;
 }
 
 #datos {
@@ -71,31 +75,159 @@ button {
 }
 
 #estado_actual {
+    width: 60vw;
+    height: 60vw;
     margin: auto;
 }
 
+#datos div {
+    width: 42vw;
+    height: 42vw;
+}
+
 #estado_actual, #datos div {
-    width: 24vw;
-    height: 24vw;
     padding: 15px;
     border: 5px solid #58748C;
     border-radius: 20px;
 }
 
 
+#estado_actual p {
+    padding-top: 40px;
+}
+
+#datos div p {
+    padding-top: 20px;
+}
+
 #estado_actual p, #datos div p {
     width: 100%;
     height: fit-content;
     text-align: center;
-    padding-top: 20px;
 }
 
 #estado_actual p span, #datos div p span {
     width: 100%;
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
+    font-weight: bold;
 }
 
-#temp_max, #temp_min, #humedad, #sensacion, #velocidad {
+#temp_max, #temp_min, #humedad, #sensacion {
     margin-bottom: 3vh;
+}
+
+@media screen and (min-width: 481px) {
+    header {
+        width: 50vw;
+    }
+    
+    header img {
+        width: 20vw;
+        margin-left: 15vw;
+    }
+    
+    main {
+        width: 80vw;
+    }
+    
+    form {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+    
+    input {
+        width: 55vw;
+        text-align: left;
+    }
+    
+    button {
+        width: 20vw;
+        margin: 0;
+    }
+    
+    #lugar {
+        margin: 3vh 0;
+        font-size: 60px;
+    }
+    
+    #estado_actual, #datos div {
+        width: 38vw;
+        height: 38vw;
+    }
+    
+    
+    #estado_actual p, #datos div p {
+        padding-top: 40px;
+    }
+    
+    #estado_actual p span, #datos div p span {
+        font-size: 60px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    header img {
+        width: 14vw;
+        margin-left: 18vw;
+    }
+    
+    main {
+        width: 55vw;
+    }
+    
+    input {
+        width: 35vw;
+    }
+    
+    button {
+        width: 15vw;
+    }
+    
+    #estado_actual, #datos div {
+        width: 25vw;
+        height: 25vw;
+    }
+    
+    
+    #estado_actual p, #datos div p {
+        padding-top: 60px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    main {
+        width: 40vw;
+    }
+    
+    input {
+        width: 28vw;
+    }
+    
+    button {
+        width: 10vw;
+    }
+    
+    #estado_actual, #datos div {
+        width: 18vw;
+        height: 18vw;
+    }
+    
+    
+    #estado_actual p, #datos div p {
+        padding-top: 50px;
+    }
+}
+
+@media screen and (min-width: 1629px) {
+    #estado_actual, #datos div {
+        width: 15vw;
+        height: 15vw;
+    }
+    
+    
+    #estado_actual p, #datos div p {
+        padding-top: 40px;
+    }
 }
