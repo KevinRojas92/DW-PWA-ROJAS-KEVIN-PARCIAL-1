@@ -124,6 +124,11 @@ buscar.addEventListener('click', buscarUbicacion => {
             return datos.json();
 
         }).then (json => {
+            let lugar_buscado = json[0].name;
+            let lugar = document.getElementById("lugar");
+            lugar.innerText = `${lugar_buscado}`;
+            localStorage.setItem("lugar", `${lugar_buscado}`);
+
             let latitud = json[0].lat;
             let longitud = json[0].lon;
 
@@ -149,6 +154,9 @@ buscar.addEventListener('click', buscarUbicacion => {
 });
 
 if (localStorage.length > 0) {
+    let lugar_guardado = localStorage.getItem("lugar");
+    lugar.innerText = `${lugar_guardado}`;
+
     let datos_guardados = JSON.parse(localStorage.getItem("ubicacion"));
 
     estado_actual.innerHTML += `<p id="resultado_estado_actual"><span>${datos_guardados[0]}</span></p>`;
