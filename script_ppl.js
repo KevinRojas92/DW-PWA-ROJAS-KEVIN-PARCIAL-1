@@ -119,7 +119,7 @@ buscar.addEventListener('click', buscarUbicacion => {
     let ubicacion = document.getElementById("buscador").value;
 
     try {
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ubicacion}&limit=1&appid=${apiKey}`)
+        fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${ubicacion}&limit=1&appid=${apiKey}`)
         .then (datos => {
             return datos.json();
 
