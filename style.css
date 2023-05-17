@@ -58,7 +58,7 @@ button {
 #lugar {
     width: 100%;
     text-align: center;
-    margin-top: 5vh;
+    margin: 5vh 0;
     font-size: 60px;
 }
 
@@ -71,8 +71,7 @@ button {
 }
 
 #estado_actual {
-    margin-top: 5vh;
-    margin-left: calc(50% - 10vw);
+    margin: auto;
 }
 
 #estado_actual, #datos div {
